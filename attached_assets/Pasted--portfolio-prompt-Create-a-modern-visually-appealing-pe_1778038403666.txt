@@ -1,0 +1,144 @@
+<portfolio_prompt>
+
+Create a modern, visually appealing personal portfolio website for Gude Naveen Kumar, an Electronics and Communication Engineering (ECE) student passionate about embedded systems, IoT, and Artificial Intelligence.
+
+1. Introduction Section (Hero Section)
+Display a clean, modern hero section with a professional profile picture (similar placement/style as the reference image).
+Include the name: Gude Naveen Kumar
+Add a short tagline:
+"ECE Student | Embedded Systems | AI & IoT Enthusiast"
+Include a brief intro:
+Naveen is an ECE student with strong interest in electronics, AI, and smart systems. He builds practical, real-world projects integrating hardware and software.
+Add a CTA button: "Contact Me" or "View Projects"
+2. Website Structure
+A. Home
+Hero section with profile image and introduction
+Animated stats or highlights (optional):
+Projects completed
+Skills mastered
+Technologies explored
+B. About Me
+Detailed bio based on:
+Passion for electronics + AI integration
+Hands-on experience with Arduino, ESP8266/ESP32, IoT systems
+Interest in embedded systems, VLSI basics, automation, and computer vision
+Include:
+Skills summary
+Career goal:
+"To become a skilled engineer capable of developing intelligent and impactful technology solutions"
+C. Education
+Display in timeline or card format:
+Subhodaya EM High School
+SSC (10th), 2024
+Score: 551 marks
+Government Polytechnic, Vijayawada
+Diploma in Electrical, Electronics and Communication Engineering
+Duration: June 2024 – July 2027
+Highlight subjects/areas:
+Digital Electronics
+IoT
+AI
+PCB Design
+Microcontrollers
+D. Skills
+Use icons or progress bars
+Categorize skills:
+
+Programming:
+
+C
+Python
+MATLAB
+
+Embedded & Hardware:
+
+Arduino
+ESP8266 / ESP32
+8051 Microcontroller
+PCB Design
+
+Technologies:
+
+Artificial Intelligence
+IoT
+Digital Electronics
+Verilog
+Drones
+
+Soft Skills:
+
+Leadership
+Communication
+E. Projects (Portfolio Section)
+
+Show projects in a modern card/grid layout (like the reference design):
+
+Automatic Lock System
+Smart security system using sensors/microcontrollers
+Mini Computer Bot
+Small embedded system performing automated tasks
+Drone Programming & Simulation
+Python-based drone control and simulation
+Fire Alarm System
+Safety system using sensors and alerts
+Each project card should include:
+Title
+Short description
+Tech used
+Optional GitHub link
+F. Services
+Since no formal services are offered:
+Rename section to "What I Can Do" or "Areas of Work"
+Include:
+Embedded Systems Development
+IoT-Based Solutions
+AI + Electronics Projects
+Automation Systems
+G. Contact Section
+
+Include:
+
+Email: gudenaveenkumar9@gmail.com
+Phone: +91 9652392414
+LinkedIn: www.linkedin.com/in/naveenkumargudeece
+GitHub: https://github.com/portfoliognk3-2k9
+Add contact form:
+Name
+Email
+Message
+3. Design Style & UI Guidelines
+
+Based on user preference and reference image:
+
+Theme: Dark modern UI
+Primary Colors: Black / Dark Gray
+Accent Color: Neon green or soft green (similar to reference)
+Typography: Clean, bold headings with minimal fonts
+Layout: Minimal, spacious, grid-based
+Animations:
+Smooth hover effects
+Subtle transitions
+Scroll animations
+4. Visual Elements
+Large hero banner with abstract shapes or tech-style background
+Cards with soft shadows and rounded corners
+Highlight sections using neon/green accents
+Use icons for skills and technologies
+Keep everything clean, modern, and not cluttered
+5. Additional Features
+Responsive design (mobile-friendly)
+Sticky navigation bar
+Smooth scrolling
+GitHub integration (optional)
+Download Resume button (optional future addition)
+6. Overall Feel
+
+The website should feel:
+
+Modern
+Tech-focused
+Clean and minimal
+Slightly futuristic
+Student portfolio but highly professional
+
+</portfolio_prompt>
