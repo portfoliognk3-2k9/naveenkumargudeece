@@ -2,112 +2,92 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Education", href: "#education" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "What I Can Do", href: "#services" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "home" },
+  { label: "About", href: "about" },
+  { label: "Education", href: "education" },
+  { label: "Skills", href: "skills" },
+  { label: "Projects", href: "projects" },
+  { label: "Contact", href: "contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-
-      const sections = navLinks.map((l) => l.href.replace("#", ""));
-      for (const id of [...sections].reverse()) {
-        const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 120) {
-          setActive(id);
-          break;
-        }
-      }
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNav = (href: string) => {
+  const scrollTo = (id: string) => {
     setMenuOpen(false);
-    const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <nav
       data-testid="navbar"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#00ff88]/10 shadow-lg"
-          : "bg-transparent"
-      }`}
+        scrolled ? "shadow-sm" : ""
+      } bg-white/80 backdrop-blur-md border-b border-border`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <button
           data-testid="nav-logo"
-          onClick={() => handleNav("#home")}
-          className="font-mono text-lg font-semibold tracking-tight"
+          onClick={() => scrollTo("home")}
+          className="text-2xl font-black text-secondary tracking-tight hover:text-primary transition-colors"
         >
-          <span className="neon-text">GNK</span>
-          <span className="text-white/40 text-sm ml-1">{"// dev"}</span>
+          GNK<span className="text-primary">.</span>
         </button>
 
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => {
-            const id = link.href.replace("#", "");
-            return (
-              <button
-                key={link.href}
-                data-testid={`nav-link-${id}`}
-                onClick={() => handleNav(link.href)}
-                className={`text-sm font-medium transition-all duration-200 hover:text-[#00ff88] relative group ${
-                  active === id ? "text-[#00ff88]" : "text-white/60"
-                }`}
-              >
-                {link.label}
-                <span
-                  className={`absolute -bottom-1 left-0 h-px transition-all duration-200 bg-[#00ff88] ${
-                    active === id ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
-                />
-              </button>
-            );
-          })}
+          {navLinks.map((link) => (
+            <button
+              key={link.href}
+              data-testid={`nav-link-${link.href}`}
+              onClick={() => scrollTo(link.href)}
+              className="text-sm font-medium text-muted-foreground hover:text-secondary transition-colors"
+            >
+              {link.label}
+            </button>
+          ))}
+          <button
+            data-testid="nav-contact-btn"
+            onClick={() => scrollTo("contact")}
+            className="px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20"
+          >
+            Contact Me
+          </button>
         </div>
 
         <button
           data-testid="nav-menu-toggle"
-          className="md:hidden text-white/70 hover:text-[#00ff88] transition-colors"
+          className="md:hidden text-secondary hover:text-primary transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-[#0d0d0d]/98 backdrop-blur-md border-b border-[#00ff88]/10 px-6 pb-6 pt-2 flex flex-col gap-4">
-          {navLinks.map((link) => {
-            const id = link.href.replace("#", "");
-            return (
-              <button
-                key={link.href}
-                data-testid={`mobile-nav-${id}`}
-                onClick={() => handleNav(link.href)}
-                className={`text-left text-sm font-medium py-2 border-b border-white/5 transition-colors hover:text-[#00ff88] ${
-                  active === id ? "text-[#00ff88]" : "text-white/60"
-                }`}
-              >
-                {link.label}
-              </button>
-            );
-          })}
+        <div className="md:hidden bg-white border-b border-border px-6 pb-6 flex flex-col gap-3">
+          {navLinks.map((link) => (
+            <button
+              key={link.href}
+              data-testid={`mobile-nav-${link.href}`}
+              onClick={() => scrollTo(link.href)}
+              className="text-left text-sm font-medium text-muted-foreground hover:text-secondary py-2 border-b border-border/50 transition-colors"
+            >
+              {link.label}
+            </button>
+          ))}
+          <button
+            onClick={() => scrollTo("contact")}
+            className="mt-2 px-5 py-2.5 rounded-full bg-secondary text-white text-sm font-semibold"
+          >
+            Contact Me
+          </button>
         </div>
       )}
     </nav>

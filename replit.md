@@ -13,39 +13,45 @@ A personal portfolio website for Gude Naveen Kumar, an ECE student specializing 
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
 - Frontend: React + Vite, Tailwind CSS v4, framer-motion, lucide-react, react-icons
-- Fonts: Space Grotesk + JetBrains Mono (Google Fonts)
+- Fonts: Inter (Google Fonts)
 - API: Express 5 (api-server)
 - DB: PostgreSQL + Drizzle ORM (not used by portfolio)
 
 ## Where things live
 
 - `artifacts/portfolio/src/App.tsx` — root app (no router, single page)
-- `artifacts/portfolio/src/components/` — all portfolio sections (Navbar, Hero, About, Education, Skills, Projects, Services, Contact, Footer)
-- `artifacts/portfolio/src/index.css` — dark theme (neon green #00ff88 accent, Space Grotesk font)
+- `artifacts/portfolio/src/components/` — Navbar, Hero, About, Education, Skills, Projects, CollaborateCTA, Services, Contact, Footer
+- `artifacts/portfolio/src/index.css` — light theme matching naveenkumargudeece.netlify.app (cyan #0bbcd4 primary, dark navy secondary, Inter font)
+- `artifacts/portfolio/public/profile_photo.png` — Naveen's real profile photo (downloaded from Netlify site)
 - `lib/api-spec/openapi.yaml` — API contract (health check only)
 
 ## Architecture decisions
 
 - Single-page portfolio with smooth-scroll navigation — no React Router, just native scrollIntoView
-- Particle canvas animation in Hero renders via raw Canvas API for performance
-- Scroll-triggered fade-in animations use IntersectionObserver (CSS classes: fade-in-up, fade-in)
-- Dark theme baked into :root (no light/dark toggle needed for a portfolio)
-- No backend — contact form simulates submission with a loading state and success message
+- framer-motion for scroll-triggered entrance animations (whileInView / initial / animate)
+- CSS marquee animation for the scrolling tech skills band below the hero
+- Floating animated badges around profile photo (ESP32, AI, IoT) using framer-motion motion.div
+- No AnimatePresence used (caused React hook conflicts) — mobile menu uses plain conditional rendering
+- No backend — contact form simulates submission with loading state and success message
 
 ## Product
 
-Full personal portfolio for Gude Naveen Kumar with sections: Hero, About, Education (timeline), Skills (progress bars with icons), Projects (4 cards), What I Can Do (services), Contact (form + social links), Footer.
+Full personal portfolio for Gude Naveen Kumar matching naveenkumargudeece.netlify.app design:
+Hero (photo + floating badges + marquee), About, Education (timeline), Skills (progress bars), Projects (4 cards), "Want to collaborate?" CTA banner, What I Can Do (services), Contact (form + info), Footer.
 
 ## User preferences
 
-- Dark modern UI — black/dark gray background, neon green (#00ff88) accents
-- Space Grotesk for headings, JetBrains Mono for labels/code
+- Design: white/light background, cyan (#0bbcd4 / hsl 190 90% 45%) accents, dark navy (#0f172a) text
+- Font: Inter (not Space Grotesk)
+- Matches naveenkumargudeece.netlify.app design exactly
 - No emojis
 
 ## Gotchas
 
 - `SiMatlaboctave` does not exist in react-icons/si — use BarChart2 from lucide-react for MATLAB
 - CSS @import url() for Google Fonts must be the first line in index.css (before @import "tailwindcss")
+- Do NOT use AnimatePresence from framer-motion — causes React hook conflicts in this workspace setup
+- Profile photo served from `public/profile_photo.png` (not @assets) since it's a downloaded file
 
 ## Pointers
 
