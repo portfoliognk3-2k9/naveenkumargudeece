@@ -13,7 +13,7 @@ export default function CollaborateCTA() {
   return (
     <section
       data-testid="collaborate-cta"
-      className="bg-secondary text-white py-24 relative overflow-hidden"
+      className="bg-secondary dark:bg-card text-white py-24 relative overflow-hidden"
     >
       <div
         className="absolute inset-0 opacity-10"

@@ -16,16 +16,11 @@ export default function Hero() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section id="home" data-testid="hero-section" className="min-h-screen bg-white selection:bg-primary/20 selection:text-primary pt-20">
+    <section id="home" data-testid="hero-section" className="min-h-screen bg-white dark:bg-background selection:bg-primary/20 selection:text-primary pt-20">
       <div className="container mx-auto px-6 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp}
-              className="mb-6"
-            >
+            <motion.div initial="hidden" animate="visible" variants={fadeUp} className="mb-6">
               <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-semibold tracking-wide">
                 Gude Naveen Kumar
               </span>
@@ -36,7 +31,7 @@ export default function Hero() {
               animate="visible"
               variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.6, delay: 0.1, ease: "easeOut" } } }}
               data-testid="hero-name"
-              className="text-5xl md:text-7xl font-black text-secondary leading-[1.1] tracking-tight mb-6"
+              className="text-5xl md:text-7xl font-black text-secondary dark:text-foreground leading-[1.1] tracking-tight mb-6"
             >
               ECE Student{" "}
               <br />
@@ -65,14 +60,14 @@ export default function Hero() {
               <button
                 data-testid="cta-projects"
                 onClick={() => scrollTo("projects")}
-                className="px-8 py-3.5 rounded-full bg-secondary text-white font-semibold text-sm hover:bg-secondary/90 transition-all shadow-xl shadow-secondary/20"
+                className="px-8 py-3.5 rounded-full bg-secondary dark:bg-primary text-white font-semibold text-sm hover:bg-secondary/90 dark:hover:bg-primary/90 transition-all shadow-xl shadow-secondary/20"
               >
                 View Projects
               </button>
               <button
                 data-testid="cta-contact"
                 onClick={() => scrollTo("contact")}
-                className="px-8 py-3.5 rounded-full border border-secondary/20 text-secondary font-semibold text-sm hover:bg-secondary/5 transition-all flex items-center gap-2"
+                className="px-8 py-3.5 rounded-full border border-secondary/20 dark:border-foreground/20 text-secondary dark:text-foreground font-semibold text-sm hover:bg-secondary/5 dark:hover:bg-foreground/5 transition-all flex items-center gap-2"
               >
                 Contact Me <ArrowRight size={16} />
               </button>
@@ -87,7 +82,7 @@ export default function Hero() {
           >
             <div className="relative w-[300px] h-[300px] md:w-[420px] md:h-[420px] rounded-full p-4">
               <div className="absolute inset-0 rounded-full border border-primary/20 bg-primary/5 animate-pulse" style={{ animationDuration: "4s" }} />
-              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl z-10">
+              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-secondary shadow-2xl z-10">
                 <img
                   src="/profile_photo.png"
                   alt="Gude Naveen Kumar"
@@ -100,7 +95,7 @@ export default function Hero() {
                 transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
                 className="absolute top-8 -left-4 z-20"
               >
-                <div className="bg-white px-4 py-2 rounded-full shadow-lg border border-border flex items-center gap-2 font-bold text-sm text-secondary">
+                <div className="bg-white dark:bg-card px-4 py-2 rounded-full shadow-lg border border-border flex items-center gap-2 font-bold text-sm text-secondary dark:text-foreground">
                   <Zap size={16} className="text-yellow-500" /> ESP32
                 </div>
               </motion.div>
@@ -110,7 +105,7 @@ export default function Hero() {
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
                 className="absolute bottom-16 -right-4 z-20"
               >
-                <div className="bg-white px-4 py-2 rounded-full shadow-lg border border-border flex items-center gap-2 font-bold text-sm text-secondary">
+                <div className="bg-white dark:bg-card px-4 py-2 rounded-full shadow-lg border border-border flex items-center gap-2 font-bold text-sm text-secondary dark:text-foreground">
                   <Brain size={16} className="text-primary" /> AI
                 </div>
               </motion.div>
@@ -120,7 +115,7 @@ export default function Hero() {
                 transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
                 className="absolute bottom-6 left-0 z-20"
               >
-                <div className="bg-white px-4 py-2 rounded-full shadow-lg border border-border flex items-center gap-2 font-bold text-sm text-secondary">
+                <div className="bg-white dark:bg-card px-4 py-2 rounded-full shadow-lg border border-border flex items-center gap-2 font-bold text-sm text-secondary dark:text-foreground">
                   <Database size={16} className="text-primary" /> IoT
                 </div>
               </motion.div>
@@ -129,7 +124,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="bg-secondary text-white py-4 overflow-hidden mt-8">
+      <div className="bg-secondary dark:bg-card text-white py-4 overflow-hidden mt-8">
         <div className="flex animate-marquee whitespace-nowrap">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
             <span key={i} className="inline-flex items-center gap-3 mx-6 text-sm font-bold tracking-widest uppercase">

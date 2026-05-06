@@ -15,7 +15,7 @@ const highlights = [
 
 export default function About() {
   return (
-    <section id="about" data-testid="about-section" className="py-24 bg-muted/30">
+    <section id="about" data-testid="about-section" className="py-24 bg-muted/30 dark:bg-secondary/20">
       <div className="container mx-auto px-6 max-w-6xl">
         <motion.div
           initial="hidden"
@@ -24,10 +24,8 @@ export default function About() {
           variants={fadeUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-black text-secondary mb-4">About Me</h2>
-          <p className="text-lg text-muted-foreground">
-            The story behind the engineer.
-          </p>
+          <h2 className="text-4xl font-black text-secondary dark:text-foreground mb-4">About Me</h2>
+          <p className="text-lg text-muted-foreground">The story behind the engineer.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -50,7 +48,7 @@ export default function About() {
               networks. But I don't stop at hardware — I write the firmware and the higher-level
               logic (in C and Python) that brings these devices to life.
             </p>
-            <p className="font-semibold text-secondary">
+            <p className="font-semibold text-secondary dark:text-foreground">
               My career goal is clear: To become a skilled engineer capable of developing
               intelligent and impactful technology solutions that make a tangible difference.
             </p>
@@ -67,12 +65,12 @@ export default function About() {
                   viewport={{ once: true }}
                   variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.6, delay: i * 0.1 } } }}
                   data-testid={`highlight-card-${i}`}
-                  className="p-5 rounded-2xl border border-border bg-white shadow-sm hover:border-primary/40 hover:shadow-md transition-all duration-300 cursor-default"
+                  className="p-5 rounded-2xl border border-border bg-white dark:bg-card shadow-sm hover:border-primary/40 hover:shadow-md transition-all duration-300 cursor-default"
                 >
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                     <Icon size={20} className="text-primary" />
                   </div>
-                  <h3 className="text-secondary font-bold text-sm mb-1">{item.label}</h3>
+                  <h3 className="text-secondary dark:text-foreground font-bold text-sm mb-1">{item.label}</h3>
                   <p className="text-muted-foreground text-xs leading-relaxed">{item.desc}</p>
                 </motion.div>
               );

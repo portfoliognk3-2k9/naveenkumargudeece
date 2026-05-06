@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Github } from "lucide-react";
+import { ArrowRight, Linkedin } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -35,7 +35,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" data-testid="projects-section" className="py-24 bg-white">
+    <section id="projects" data-testid="projects-section" className="py-24 bg-white dark:bg-background">
       <div className="container mx-auto px-6 max-w-6xl">
         <motion.div
           initial="hidden"
@@ -46,17 +46,17 @@ export default function Projects() {
         >
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <h2 className="text-4xl font-black text-secondary mb-3">Featured Projects</h2>
+              <h2 className="text-4xl font-black text-secondary dark:text-foreground mb-3">Featured Projects</h2>
               <p className="text-lg text-muted-foreground">Real systems. Real hardware. Real impact.</p>
             </div>
             <a
-              href="https://github.com/portfoliognk3-2k9"
+              href="https://www.linkedin.com/in/naveenkumargudeece"
               target="_blank"
               rel="noopener noreferrer"
-              data-testid="github-profile-link"
-              className="flex items-center gap-2 px-6 py-3 rounded-full border border-secondary/20 text-secondary font-semibold text-sm hover:bg-secondary/5 transition-all"
+              data-testid="linkedin-profile-link"
+              className="flex items-center gap-2 px-6 py-3 rounded-full border border-secondary/20 dark:border-foreground/20 text-secondary dark:text-foreground font-semibold text-sm hover:bg-secondary/5 dark:hover:bg-foreground/5 transition-all"
             >
-              <Github size={16} /> View GitHub
+              <Linkedin size={16} /> View LinkedIn
             </a>
           </div>
         </motion.div>
@@ -70,10 +70,10 @@ export default function Projects() {
               viewport={{ once: true }}
               variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.6, delay: i * 0.1 } } }}
               data-testid={`project-card-${project.id}`}
-              className="group bg-white border border-border rounded-2xl hover:shadow-xl hover:border-primary/40 transition-all duration-300 overflow-hidden cursor-pointer"
+              className="group bg-white dark:bg-card border border-border rounded-2xl hover:shadow-xl hover:border-primary/40 transition-all duration-300 overflow-hidden cursor-pointer"
             >
               <div className="p-8 flex flex-col h-full">
-                <h3 className="text-2xl font-bold text-secondary mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-bold text-secondary dark:text-foreground mb-3 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground mb-8 flex-grow leading-relaxed">{project.desc}</p>
@@ -81,16 +81,22 @@ export default function Projects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 rounded-full bg-muted text-muted-foreground text-xs font-semibold"
+                      className="px-3 py-1 rounded-full bg-muted dark:bg-secondary/40 text-muted-foreground text-xs font-semibold"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center text-sm font-bold text-secondary group-hover:text-primary transition-colors mt-auto pt-4 border-t border-border">
-                  View Details{" "}
+                <a
+                  href="https://www.linkedin.com/in/naveenkumargudeece"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid={`project-linkedin-${project.id}`}
+                  className="flex items-center text-sm font-bold text-secondary dark:text-foreground group-hover:text-primary transition-colors mt-auto pt-4 border-t border-border"
+                >
+                  View LinkedIn{" "}
                   <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </div>
+                </a>
               </div>
             </motion.div>
           ))}

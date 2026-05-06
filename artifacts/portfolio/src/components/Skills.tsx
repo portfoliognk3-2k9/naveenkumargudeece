@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { SiArduino, SiPython, SiC, SiRaspberrypi } from "react-icons/si";
-import { Cpu, Wifi, Brain, Layers, Zap, Mic2, BarChart2, GitBranch } from "lucide-react";
+import { Cpu, Wifi, Brain, Layers, Zap, Mic2, BarChart2, GitBranch, Users } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -11,43 +11,43 @@ const skillCategories = [
   {
     title: "Programming",
     skills: [
-      { name: "C Programming", icon: SiC, level: 80 },
-      { name: "Python", icon: SiPython, level: 75 },
-      { name: "MATLAB", icon: BarChart2, level: 60 },
+      { name: "C Programming", icon: SiC },
+      { name: "Python", icon: SiPython },
+      { name: "MATLAB", icon: BarChart2 },
     ],
   },
   {
     title: "Embedded & Hardware",
     skills: [
-      { name: "Arduino", icon: SiArduino, level: 85 },
-      { name: "ESP8266 / ESP32", icon: Wifi, level: 80 },
-      { name: "8051 Microcontroller", icon: Cpu, level: 70 },
-      { name: "PCB Design", icon: Layers, level: 65 },
+      { name: "Arduino", icon: SiArduino },
+      { name: "ESP8266 / ESP32", icon: Wifi },
+      { name: "8051 Microcontroller", icon: Cpu },
+      { name: "PCB Design", icon: Layers },
     ],
   },
   {
     title: "Technologies",
     skills: [
-      { name: "Artificial Intelligence", icon: Brain, level: 65 },
-      { name: "IoT Systems", icon: GitBranch, level: 80 },
-      { name: "Digital Electronics", icon: Zap, level: 85 },
-      { name: "Verilog", icon: Cpu, level: 55 },
-      { name: "Drone Systems", icon: Layers, level: 60 },
-      { name: "Raspberry Pi", icon: SiRaspberrypi, level: 60 },
+      { name: "Artificial Intelligence", icon: Brain },
+      { name: "IoT Systems", icon: GitBranch },
+      { name: "Digital Electronics", icon: Zap },
+      { name: "Verilog", icon: Cpu },
+      { name: "Drone Systems", icon: Layers },
+      { name: "Raspberry Pi", icon: SiRaspberrypi },
     ],
   },
   {
     title: "Soft Skills",
     skills: [
-      { name: "Leadership", icon: Mic2, level: 80 },
-      { name: "Communication", icon: Mic2, level: 85 },
+      { name: "Leadership", icon: Users },
+      { name: "Communication", icon: Mic2 },
     ],
   },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" data-testid="skills-section" className="py-24 bg-muted/30">
+    <section id="skills" data-testid="skills-section" className="py-24 bg-muted/30 dark:bg-secondary/20">
       <div className="container mx-auto px-6 max-w-6xl">
         <motion.div
           initial="hidden"
@@ -56,7 +56,7 @@ export default function Skills() {
           variants={fadeUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-black text-secondary mb-4">Technical Skills</h2>
+          <h2 className="text-4xl font-black text-secondary dark:text-foreground mb-4">Technical Skills</h2>
           <p className="text-lg text-muted-foreground">Tools and technologies I work with.</p>
         </motion.div>
 
@@ -69,31 +69,25 @@ export default function Skills() {
               viewport={{ once: true }}
               variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.6, delay: ci * 0.1 } } }}
               data-testid={`skill-category-${ci}`}
-              className="bg-white rounded-2xl border border-border p-6 shadow-sm hover:border-primary/30 transition-colors"
+              className="bg-white dark:bg-card rounded-2xl border border-border p-6 shadow-sm hover:border-primary/30 transition-colors"
             >
               <h3 className="text-xs font-bold text-primary uppercase tracking-widest mb-5">{cat.title}</h3>
-              <div className="space-y-4">
+              <div className="flex flex-wrap gap-2.5">
                 {cat.skills.map((skill, si) => {
                   const Icon = skill.icon;
                   return (
-                    <div key={si} data-testid={`skill-${skill.name.toLowerCase().replace(/[\s/]+/g, "-")}`}>
-                      <div className="flex items-center justify-between mb-1.5">
-                        <div className="flex items-center gap-2.5">
-                          <Icon className="text-primary w-4 h-4 flex-shrink-0" />
-                          <span className="text-secondary font-medium text-sm">{skill.name}</span>
-                        </div>
-                        <span className="text-muted-foreground text-xs font-mono">{skill.level}%</span>
-                      </div>
-                      <div className="h-1.5 bg-muted rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1, delay: si * 0.1, ease: "easeOut" }}
-                          className="h-full rounded-full bg-gradient-to-r from-primary to-blue-500"
-                        />
-                      </div>
-                    </div>
+                    <motion.div
+                      key={si}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: si * 0.06 }}
+                      data-testid={`skill-${skill.name.toLowerCase().replace(/[\s/]+/g, "-")}`}
+                      className="flex items-center gap-2 px-3.5 py-2 rounded-xl border border-border dark:border-border bg-muted/50 dark:bg-secondary/30 hover:border-primary/40 hover:bg-primary/5 dark:hover:bg-primary/10 transition-all duration-200 group cursor-default"
+                    >
+                      <Icon className="text-primary w-4 h-4 flex-shrink-0" />
+                      <span className="text-secondary dark:text-foreground font-medium text-sm">{skill.name}</span>
+                    </motion.div>
                   );
                 })}
               </div>

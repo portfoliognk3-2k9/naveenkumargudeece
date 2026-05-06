@@ -30,7 +30,7 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" data-testid="education-section" className="py-24 bg-white">
+    <section id="education" data-testid="education-section" className="py-24 bg-white dark:bg-background">
       <div className="container mx-auto px-6 max-w-4xl">
         <motion.div
           initial="hidden"
@@ -39,7 +39,7 @@ export default function Education() {
           variants={fadeUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-black text-secondary mb-4">Education Journey</h2>
+          <h2 className="text-4xl font-black text-secondary dark:text-foreground mb-4">Education Journey</h2>
           <p className="text-lg text-muted-foreground">The academic foundation behind the builds.</p>
         </motion.div>
 
@@ -54,11 +54,11 @@ export default function Education() {
               data-testid={`education-card-${i}`}
               className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
             >
-              <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-background bg-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
                 <GraduationCap size={16} />
               </div>
 
-              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white border border-border rounded-2xl hover:border-primary/40 transition-colors shadow-sm">
+              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white dark:bg-card border border-border rounded-2xl hover:border-primary/40 transition-colors shadow-sm">
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-sm font-bold text-primary flex items-center gap-1.5">
@@ -68,14 +68,14 @@ export default function Education() {
                       className={`text-xs px-2.5 py-1 rounded-full font-semibold ${
                         edu.status === "Ongoing"
                           ? "bg-primary/10 text-primary border border-primary/20"
-                          : "bg-muted text-muted-foreground border border-border"
+                          : "bg-muted dark:bg-secondary/40 text-muted-foreground border border-border"
                       }`}
                     >
                       {edu.status}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-secondary mb-1">{edu.institution}</h3>
+                  <h3 className="text-lg font-bold text-secondary dark:text-foreground mb-1">{edu.institution}</h3>
                   <p className="text-sm text-muted-foreground mb-3">{edu.degree}</p>
 
                   {edu.score && (
@@ -88,7 +88,7 @@ export default function Education() {
                     {edu.subjects.map((s, j) => (
                       <span
                         key={j}
-                        className="px-2.5 py-1 rounded-md bg-muted text-muted-foreground text-xs font-medium hover:bg-primary/10 hover:text-primary transition-colors"
+                        className="px-2.5 py-1 rounded-md bg-muted dark:bg-secondary/40 text-muted-foreground text-xs font-medium hover:bg-primary/10 hover:text-primary transition-colors"
                       >
                         {s}
                       </span>

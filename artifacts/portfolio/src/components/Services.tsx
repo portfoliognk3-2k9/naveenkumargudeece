@@ -35,7 +35,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" data-testid="services-section" className="py-24 bg-muted/30">
+    <section id="services" data-testid="services-section" className="py-24 bg-muted/30 dark:bg-secondary/20">
       <div className="container mx-auto px-6 max-w-6xl">
         <motion.div
           initial="hidden"
@@ -44,7 +44,7 @@ export default function Services() {
           variants={fadeUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-black text-secondary mb-4">What I Can Do</h2>
+          <h2 className="text-4xl font-black text-secondary dark:text-foreground mb-4">What I Can Do</h2>
           <p className="text-lg text-muted-foreground">Areas of expertise and contribution.</p>
         </motion.div>
 
@@ -59,14 +59,14 @@ export default function Services() {
                 viewport={{ once: true }}
                 variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.6, delay: i * 0.1 } } }}
                 data-testid={`service-card-${i}`}
-                className="group p-6 rounded-2xl border border-border bg-white shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300 cursor-default"
+                className="group p-6 rounded-2xl border border-border bg-white dark:bg-card shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300 cursor-default"
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
                     <Icon size={22} className="text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-secondary font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                    <h3 className="text-secondary dark:text-foreground font-bold text-lg leading-tight group-hover:text-primary transition-colors">
                       {service.title}
                     </h3>
                   </div>
@@ -75,7 +75,7 @@ export default function Services() {
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">{service.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {service.tags.map((tag, j) => (
-                    <span key={j} className="px-2.5 py-1 rounded-full bg-muted text-muted-foreground text-xs font-medium">
+                    <span key={j} className="px-2.5 py-1 rounded-full bg-muted dark:bg-secondary/40 text-muted-foreground text-xs font-medium">
                       {tag}
                     </span>
                   ))}
