@@ -35,7 +35,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" data-testid="services-section" className="py-24 bg-muted/30 dark:bg-secondary/20">
+    <section id="services" data-testid="services-section" className="py-24 bg-primary/5 dark:bg-primary/10">
       <div className="container mx-auto px-6 max-w-6xl">
         <motion.div
           initial="hidden"

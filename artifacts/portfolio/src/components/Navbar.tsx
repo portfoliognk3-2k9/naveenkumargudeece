@@ -38,9 +38,18 @@ export default function Navbar() {
         <button
           data-testid="nav-logo"
           onClick={() => scrollTo("home")}
-          className="text-2xl font-black text-secondary dark:text-foreground tracking-tight hover:text-primary transition-colors"
+          className="flex items-center gap-2 hover:opacity-85 transition-opacity"
         >
-          GNK<span className="text-primary">.</span>
+          <div className="relative">
+            <img
+              src="/nk_logo.png"
+              alt="NK logo"
+              className="w-10 h-10 object-contain"
+            />
+          </div>
+          <span className="text-2xl font-black text-secondary dark:text-foreground tracking-tight">
+            GNK<span className="text-primary">.</span>
+          </span>
         </button>
 
         <div className="hidden md:flex items-center gap-8">
