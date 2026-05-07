@@ -32,12 +32,13 @@ const projects = [
     num: "03",
   },
   {
-    id: "ai-raspi",
-    title: "AI on Raspberry Pi",
-    desc: "Running AI and computer vision models directly on Raspberry Pi hardware — demonstrating edge computing power.",
-    tags: ["Raspberry Pi", "AI", "Computer Vision", "Python"],
+    id: "drone-sim",
+    title: "Drone Control Simulation",
+    desc: "Built a real-time drone control system using Python and PySimVerse with keyboard-based flight navigation and movement controls.",
+    tags: ["Python", "PySimVerse", "Drone Simulation", "Robotics"],
     gradient: "from-cyan-400 to-blue-600",
     num: "04",
+    linkedinPost: "https://www.linkedin.com/posts/naveenkumargudeece_python-drone-robotics-activity-7457986185899069440-KMSI",
   },
 ];
 
@@ -104,13 +105,13 @@ export default function Projects() {
                 </div>
 
                 <a
-                  href="https://www.linkedin.com/in/naveenkumargudeece"
+                  href={"linkedinPost" in project ? project.linkedinPost : "https://www.linkedin.com/in/naveenkumargudeece"}
                   target="_blank"
                   rel="noopener noreferrer"
                   data-testid={`project-linkedin-${project.id}`}
                   className="flex items-center gap-2 text-xs font-bold text-muted-foreground group-hover:text-primary transition-colors pt-4 border-t border-border"
                 >
-                  View LinkedIn <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                  {"linkedinPost" in project ? "View Post" : "View LinkedIn"} <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
             </motion.div>
