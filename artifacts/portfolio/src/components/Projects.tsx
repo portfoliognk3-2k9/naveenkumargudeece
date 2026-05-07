@@ -86,9 +86,14 @@ export default function Projects() {
                   <span className={`text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r ${project.gradient} opacity-20 group-hover:opacity-40 transition-opacity select-none`}>
                     {project.num}
                   </span>
-                  <div className={`w-8 h-8 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0`}>
+                  <a
+                    href={"linkedinPost" in project ? project.linkedinPost : "https://www.linkedin.com/in/naveenkumargudeece"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-8 h-8 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0`}
+                  >
                     <ExternalLink size={14} className="text-white" />
-                  </div>
+                  </a>
                 </div>
 
                 <h3 className="text-xl font-bold text-secondary dark:text-foreground mb-3 group-hover:text-primary transition-colors">
