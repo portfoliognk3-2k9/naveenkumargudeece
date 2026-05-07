@@ -9,22 +9,22 @@ const socials = [
 ];
 
 export default function Footer() {
-  const scrollTo = (id: string) => {
+  const scrollTo = (id: string) =>
     document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
-    <footer data-testid="footer" className="bg-secondary dark:bg-card text-white">
-      <div className="container mx-auto px-6 py-12">
+    <footer data-testid="footer" className="bg-secondary dark:bg-card text-white relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="absolute bottom-0 left-1/4 w-80 h-40 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-6 py-14 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           <div>
-            <div className="text-2xl font-black mb-3">
-              GNK<span className="text-primary">.</span>
-            </div>
-            <p className="text-white/50 text-sm leading-relaxed max-w-xs">
+            <img src="/nk_logo.png" alt="NK Logo" className="w-10 h-10 object-contain mb-4 opacity-90" />
+            <p className="text-white/40 text-sm leading-relaxed max-w-xs">
               ECE student building at the intersection of hardware and intelligence.
             </p>
-            <div className="flex gap-3 mt-5">
+            <div className="flex gap-2.5 mt-6">
               {socials.map((s) => {
                 const Icon = s.icon;
                 return (
@@ -35,9 +35,9 @@ export default function Footer() {
                     target={s.href.startsWith("http") ? "_blank" : undefined}
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-primary hover:border-primary/40 transition-all duration-200"
+                    className="w-9 h-9 rounded-xl border border-white/10 flex items-center justify-center text-white/40 hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-200"
                   >
-                    <Icon size={16} />
+                    <Icon size={15} />
                   </a>
                 );
               })}
@@ -45,14 +45,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-white/40 text-xs uppercase tracking-widest font-semibold mb-4">Navigation</p>
-            <div className="grid grid-cols-2 gap-2">
+            <p className="text-white/30 text-xs uppercase tracking-[0.15em] font-bold mb-5">Navigation</p>
+            <div className="grid grid-cols-2 gap-y-2">
               {navLinks.map((link) => (
                 <button
                   key={link}
                   data-testid={`footer-link-${link.toLowerCase()}`}
                   onClick={() => scrollTo(link)}
-                  className="text-left text-white/50 text-sm hover:text-white transition-colors py-0.5"
+                  className="text-left text-white/40 text-sm hover:text-primary transition-colors"
                 >
                   {link}
                 </button>
@@ -61,21 +61,21 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-white/40 text-xs uppercase tracking-widest font-semibold mb-4">Contact</p>
-            <div className="space-y-2">
-              <p className="text-white/50 text-sm">gudenaveenkumar9@gmail.com</p>
-              <p className="text-white/50 text-sm">+91 9652392414</p>
-              <p className="text-white/50 text-sm">Vijayawada, Andhra Pradesh</p>
+            <p className="text-white/30 text-xs uppercase tracking-[0.15em] font-bold mb-5">Contact</p>
+            <div className="space-y-2.5">
+              <p className="text-white/40 text-sm">gudenaveenkumar9@gmail.com</p>
+              <p className="text-white/40 text-sm">+91 9652392414</p>
+              <p className="text-white/40 text-sm">Vijayawada, Andhra Pradesh</p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-white/30 text-xs">
+          <p className="text-white/20 text-xs">
             &copy; {new Date().getFullYear()} Gude Naveen Kumar. All rights reserved.
           </p>
-          <p className="text-white/20 text-xs">
-            Built with <span className="text-primary font-semibold">passion</span> for electronics &amp; AI
+          <p className="text-white/15 text-xs">
+            Built with <span className="text-primary/70 font-semibold">passion</span> for electronics &amp; AI
           </p>
         </div>
       </div>
