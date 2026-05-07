@@ -8,12 +8,13 @@ const fadeUp = {
 
 const projects = [
   {
-    id: "auto-lock",
-    title: "Automatic Lock System",
-    desc: "Smart locking mechanism leveraging microcontrollers and robust sensors for seamless security and automation.",
-    tags: ["Microcontrollers", "Sensors", "Automation"],
+    id: "rfid-lock",
+    title: "Smart RFID Door Lock System",
+    desc: "Developed a multi-level security system using RFID authentication, keypad password verification, LCD status display, and servo-based locking — demonstrating embedded systems and access control concepts.",
+    tags: ["Arduino", "RFID", "Embedded Systems", "IoT"],
     gradient: "from-cyan-500 to-blue-500",
     num: "01",
+    linkedinPost: "https://www.linkedin.com/posts/naveenkumargudeece_arduino-embeddedsystems-rfid-activity-7458138636690104321-v805",
   },
   {
     id: "mini-bot",
