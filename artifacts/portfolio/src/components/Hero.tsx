@@ -87,23 +87,21 @@ export default function Hero() {
               </button>
             </motion.div>
 
-            {/* Stats row */}
+            {/* Resume download */}
             <motion.div
               initial="hidden"
               animate="visible"
               variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.6, delay: 0.4, ease: "easeOut" } } }}
-              className="flex gap-8 mt-12 pt-8 border-t border-border"
+              className="mt-6"
             >
-              {[
-                { value: "4+", label: "Projects Built" },
-                { value: "3+", label: "Technologies" },
-                { value: "2027", label: "Graduating" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">{stat.value}</p>
-                  <p className="text-xs text-muted-foreground font-medium mt-0.5">{stat.label}</p>
-                </div>
-              ))}
+              <a
+                href="/resume.pdf"
+                download
+                className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full border border-border dark:border-white/15 text-secondary dark:text-white/80 font-semibold text-sm hover:border-primary/50 hover:text-primary dark:hover:text-primary hover:bg-primary/5 hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <Download size={15} />
+                Download Resume
+              </a>
             </motion.div>
           </div>
 
