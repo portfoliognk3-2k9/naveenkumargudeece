@@ -15,34 +15,34 @@ const highlights = [
 
 export default function About() {
   return (
-    <section id="about" data-testid="about-section" className="relative py-24 bg-primary/5 dark:bg-primary/10 overflow-hidden">
+    <section id="about" data-testid="about-section" className="relative py-24 bg-primary/5 dark:bg-[hsl(222,47%,8%)] overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
           <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-3">Who I Am</p>
-          <h2 className="text-4xl md:text-5xl font-black text-secondary dark:text-foreground mb-4">About Me</h2>
+          <h2 className="text-4xl md:text-5xl font-black text-secondary dark:text-white mb-4">About Me</h2>
           <div className="w-16 h-1 rounded-full bg-gradient-to-r from-primary to-blue-500 mx-auto" />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-            className="space-y-5 text-muted-foreground leading-relaxed">
-            <p>
+            className="space-y-5 leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-300">
               My fascination with technology started the moment I realized how simple
               electronic components could be orchestrated to perform complex tasks. Today,
               I combine my foundational knowledge of Electronics with Artificial Intelligence
               to create smart, responsive systems.
             </p>
-            <p>
+            <p className="text-slate-600 dark:text-slate-300">
               I have extensive hands-on experience working with microcontrollers like Arduino,
               ESP8266, and ESP32, integrating them with various sensors to build functional IoT
               networks. I also write the firmware and higher-level logic (in C and Python) that
               brings these devices to life.
             </p>
-            <div className="p-5 rounded-2xl bg-white dark:bg-card border border-primary/20 relative overflow-hidden">
+            <div className="p-5 rounded-2xl bg-white dark:bg-white/10 border border-primary/20 dark:border-primary/30 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-blue-500 rounded-l-2xl" />
-              <p className="font-semibold text-secondary dark:text-foreground pl-3">
+              <p className="font-semibold text-secondary dark:text-white pl-3">
                 My career goal is clear: To become a skilled engineer capable of developing
                 intelligent and impactful technology solutions that make a tangible difference.
               </p>
@@ -60,14 +60,14 @@ export default function About() {
                   viewport={{ once: true }}
                   variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.5, delay: i * 0.1 } } }}
                   data-testid={`highlight-card-${i}`}
-                  className="group relative p-5 rounded-2xl border border-border bg-white dark:bg-card overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-default"
+                  className="group relative p-5 rounded-2xl border border-border dark:border-white/10 bg-white dark:bg-white/5 overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-default"
                 >
                   <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${item.color}`} />
                   <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-3 shadow-lg`}>
                     <Icon size={18} className="text-white" />
                   </div>
-                  <h3 className="text-secondary dark:text-foreground font-bold text-sm mb-1 group-hover:text-primary transition-colors">{item.label}</h3>
-                  <p className="text-muted-foreground text-xs leading-relaxed">{item.desc}</p>
+                  <h3 className="text-secondary dark:text-white font-bold text-sm mb-1 group-hover:text-primary transition-colors">{item.label}</h3>
+                  <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">{item.desc}</p>
                 </motion.div>
               );
             })}

@@ -39,13 +39,13 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" data-testid="services-section" className="relative py-24 bg-primary/5 dark:bg-primary/10 overflow-hidden">
+    <section id="services" data-testid="services-section" className="relative py-24 bg-primary/5 dark:bg-[hsl(222,47%,8%)] overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
           <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-3">Expertise</p>
-          <h2 className="text-4xl md:text-5xl font-black text-secondary dark:text-foreground mb-4">What I Can Do</h2>
+          <h2 className="text-4xl md:text-5xl font-black text-secondary dark:text-white mb-4">What I Can Do</h2>
           <div className="w-16 h-1 rounded-full bg-gradient-to-r from-primary to-blue-500 mx-auto" />
         </motion.div>
 
@@ -60,7 +60,7 @@ export default function Services() {
                 viewport={{ once: true }}
                 variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.6, delay: i * 0.1 } } }}
                 data-testid={`service-card-${i}`}
-                className="group relative bg-white dark:bg-card rounded-2xl border border-border overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
+                className="group relative bg-white dark:bg-white/5 rounded-2xl border border-border dark:border-white/10 overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
               >
                 <div className={`h-1 w-full bg-gradient-to-r ${service.gradient}`} />
                 <div className="p-6">
@@ -68,14 +68,14 @@ export default function Services() {
                     <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center flex-shrink-0 shadow-lg`}>
                       <Icon size={20} className="text-white" />
                     </div>
-                    <h3 className="text-secondary dark:text-foreground font-bold text-base leading-snug group-hover:text-primary transition-colors pt-1">
+                    <h3 className="text-secondary dark:text-white font-bold text-base leading-snug group-hover:text-primary transition-colors pt-1">
                       {service.title}
                     </h3>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{service.description}</p>
+                  <p className="text-slate-500 dark:text-slate-300 text-sm leading-relaxed mb-4">{service.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {service.tags.map((tag, j) => (
-                      <span key={j} className="px-2.5 py-1 rounded-lg bg-muted/60 dark:bg-secondary/40 text-muted-foreground text-xs font-semibold">
+                      <span key={j} className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 text-xs font-semibold">
                         {tag}
                       </span>
                     ))}

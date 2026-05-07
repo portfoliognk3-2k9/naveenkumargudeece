@@ -51,13 +51,13 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" data-testid="skills-section" className="relative py-24 bg-secondary/5 dark:bg-primary/10 overflow-hidden">
+    <section id="skills" data-testid="skills-section" className="relative py-24 bg-secondary/5 dark:bg-[hsl(222,47%,9%)] overflow-hidden">
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
           <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-3">What I Know</p>
-          <h2 className="text-4xl md:text-5xl font-black text-secondary dark:text-foreground mb-4">Technical Skills</h2>
+          <h2 className="text-4xl md:text-5xl font-black text-secondary dark:text-white mb-4">Technical Skills</h2>
           <div className="w-16 h-1 rounded-full bg-gradient-to-r from-primary to-blue-500 mx-auto" />
         </motion.div>
 
@@ -70,9 +70,8 @@ export default function Skills() {
               viewport={{ once: true }}
               variants={{ ...fadeUp, visible: { ...fadeUp.visible, transition: { duration: 0.6, delay: ci * 0.1 } } }}
               data-testid={`skill-category-${ci}`}
-              className="group relative bg-white dark:bg-card rounded-2xl border border-border overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
+              className="group relative bg-white dark:bg-white/5 rounded-2xl border border-border dark:border-white/10 overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
             >
-              {/* Gradient top bar */}
               <div className={`h-1 w-full bg-gradient-to-r ${cat.gradient}`} />
 
               <div className="p-6">
@@ -90,10 +89,10 @@ export default function Skills() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.35, delay: si * 0.07 }}
                         data-testid={`skill-${skill.name.toLowerCase().replace(/[\s/]+/g, "-")}`}
-                        className="flex items-center gap-2 px-3 py-2 rounded-xl bg-muted/60 dark:bg-secondary/40 hover:bg-primary/10 dark:hover:bg-primary/15 border border-transparent hover:border-primary/30 transition-all duration-200 cursor-default group/badge"
+                        className="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-primary/10 dark:hover:bg-primary/20 border border-transparent hover:border-primary/30 transition-all duration-200 cursor-default"
                       >
                         <Icon className="text-primary w-3.5 h-3.5 flex-shrink-0" />
-                        <span className="text-secondary dark:text-foreground font-semibold text-xs">{skill.name}</span>
+                        <span className="text-secondary dark:text-white font-semibold text-xs">{skill.name}</span>
                       </motion.div>
                     );
                   })}
